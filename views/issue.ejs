@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/issue.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/" id="home-link">HOME</a>
+
+      <h4>
+        <a href="/project-detail-open/?id=<%=project_id%>" id="create-issue"
+          >Back To Project</a
+        >
+      </h4>
+    </nav>
+    <div id="heading"><h1>Create Issue</h1></div>
+
+    <form
+      id="new-issue-form"
+      action="/created-issue/?id=<%=project_id%>"
+      method="post"
+    >
+      <input
+        id="issueinput"
+        type="text"
+        name="title"
+        placeholder="Issue Title"
+        required
+      /><br />
+      <input
+        id="issueinput"
+        type="text"
+        name="description"
+        placeholder="Description"
+        required
+      /><br />
+      <input
+        id="issueinput"
+        type="text"
+        name="author"
+        placeholder="Author"
+        required
+      /><br />
+      <div id="label">
+        <input
+          type="checkbox"
+          name="labels"
+          value="Documentation"
+        />&nbsp;Documentation
+        <br />
+        <input
+          type="checkbox"
+          name="labels"
+          value="Service"
+        />&nbsp;Service<br />
+        <input
+          type="checkbox"
+          name="labels"
+          value="Storage"
+        />&nbsp;Storage<br />
+        <input
+          type="checkbox"
+          name="labels"
+          value="Priority"
+        />&nbsp;Priority<br />
+      </div>
+      <br />
+
+      <button id="submit-btn" type="submit">Add Issue</button>
+    </form>
+  </body>
+</html>

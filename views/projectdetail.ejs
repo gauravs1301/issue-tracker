@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=project.name%></title>
+    <link rel="stylesheet" href="/details.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/" id="home-link">HOME</a>
+
+      <h4>
+        <a href="/created-issue/?id=<%= project.id%>" id="create-issue"
+          >Create Issue/Bug</a
+        >
+      </h4>
+    </nav>
+
+    <div class="container-block">
+      <div id="details-d-a">
+
+        <p><b>Project: </b><%=project.name %></p>
+        <p><b>Project Description: </b><%=project.description %></p>
+        <p><b>Project Author: </b><%=project.author %></p>
+      </div>
+
+      <div class="search">
+
+        <h2 style="border:2px solid black; ;background-color:white; text-align: center; box-shadow: 4px 4px 4px gray;" >Filter By Labels</h2>
+
+        
+        <input
+          type="text"
+          placeholder="Search by Author of the Issue"
+          id="search-name"
+          
+        />
+        <input
+          type="text"
+          placeholder="Search by Title of the Issue"
+          id="search-title"
+        
+        />
+        <input
+        type="text"
+        placeholder="Search by description of the Isssue"
+        id="search-description"
+      
+      />
+      </div> 
+      <div class="labels-container">
+        <h2 style="border:2px solid black; padding:5px ;background-color:white; text-align: center; box-shadow: 4px 4px 4px gray;" >Filter By Labels</h2>
+        <label><input type="checkbox" value="Documentation">Documentation</label><br>
+        <label><input type="checkbox" value="Service">Service</label><br>
+        <label><input type="checkbox" value="Storage">Storage</label><br>
+        <label><input type="checkbox" value="Priority">Priority</label><br>
+      </div> 
+      </div>
+
+    <!--  -->
+    <div id="issue-details-container">
+
+
+      
+      <% for(let i of issues) { %>
+      <div id="issue-details">
+        <p >
+          <b>Issue Title : </b> <span id="issueTitle"><%=i.title %></span>
+        </p>
+        <p>
+          <b>Issue Description : </b><span id="issueDescription"><%=i.description %>
+        </p>
+        <p ><b>Issue Author : </b><span id="issueAuthor"><%=i.author %></p>
+        <p ><b>Issue Labels : </b><span id="issueLabels"><%=i.labels %></p>
+        <a href="/delete-issue/?id=<%=i._id%>" id="issue-btn">Delete</a>
+      </div>
+
+      <% } %>
+    </div>
+    <script src="/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <div id="nav">
+      <h1>Issue Tracker</h1>
+    </div>
+    <div class="main-container">
+      <form class="project-create-form" action="/" method="post">
+        <input
+          style="color: white"
+          type="text"
+          placeholder="Enter Project Name"
+          id="form-project-name"
+          name="name"
+          required
+        />
+        <textarea
+          rows="5"
+          cols="40"
+          id="form-project-description"
+          placeholder="Enter Project Description"
+          name="description"
+          required
+        ></textarea>
+        <input
+          type="text"
+          placeholder="Enter Author Name"
+          id="form-project-author"
+          name="author"
+          required
+        />
+        <br />
+        <button id="create-project-btn">Create Project</button>
+      </form>
+
+      <div class="project-name-container">
+        <h2 id="list-heading">Project List</h2>
+        <%for(let i of project){%>
+        <div id="project-name">
+          <%=i.name%>
+          <div>
+            <a href="/project-detail-open/?id=<%=i.id%>" id="link-to-open"
+              >Open</a
+            >
+            <a href="/project-detail-delete/?id=<%=i.id%>" id="link-to-delete"
+              >Delete</a
+            >
+          </div>
+        </div>
+
+        <%}%>
+      </div>
+    </div>
+  </body>
+</html>
